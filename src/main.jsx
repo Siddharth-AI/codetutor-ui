@@ -6,8 +6,12 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
+    <BrowserRouter basename="/codetutor-ui">
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<div>about page</div>} />
+        <Route path="/contact" element={<div>contact page</div>} />
+      </Routes>
     </BrowserRouter>
   </StrictMode>
 );
