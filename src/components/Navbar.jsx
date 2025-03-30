@@ -82,6 +82,7 @@ export const Navbar = () => {
       ],
     },
   };
+
   return (
     <nav className="bg-black text-white fixed top-0 left-0 right-0 border-b border-white/10">
       <div className="container mx-auto px-4 py-2 sm:px-6 lg:px-8">
@@ -96,7 +97,7 @@ export const Navbar = () => {
           {/* desktop menu */}
           <div className="hidden lg:flex items-center space-x-4">
             {Object.keys(menuItems).map((key) => (
-              <div>
+              <div className="relative">
                 <button
                   onClick={() => toggleDropdown(key)}
                   className="hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium flex items-center">
@@ -107,8 +108,41 @@ export const Navbar = () => {
                     }`}
                   />
                 </button>
+                {/* dropdown menu */}
+                {activeDropdown === key && (
+                  <div className="absolute left-0 mt-2 w-screen max-w-md bg-white rounded-md shadow-lg py-1 text-black">
+                    <div>
+                      {key === "platform" ? (
+                        <div>platform item</div>
+                      ) : (
+                        <div className="space-y-2">
+                          {menuItems[key].items.map((item, index) => (
+                            <Link
+                              to={`/${key}/${item.name.toLowerCase()}`}
+                              className="group flex items-start p-2 rounded-lg hover:bg-gray-100">
+                              <div className="px-4">
+                                <p className="text-sm font-medium text-gray-900">
+                                  {item.name}
+                                </p>
+                                <p className="text-sm text-gray-500">
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
+            <Link to="/enterprise" className="hover:text-gray-300">
+              Enterprise
+            </Link>
+            <Link to="/pricing" className="hover:text-gray-300">
+              Pricing
+            </Link>
           </div>
 
           {/* auth btn */}
