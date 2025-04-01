@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdClose, MdKeyboardArrowDown, MdMenu } from "react-icons/md";
 import { Link } from "react-router";
 
 export const Navbar = () => {
@@ -175,10 +175,32 @@ export const Navbar = () => {
           </div>
 
           {/* auth btn */}
-          <div>Buttons</div>
+          <div className="hidden md:flex items-center space-x-4">
+            <Link to="/login" className="hover:text-gray-300 hidden xl:block">
+              Log in
+            </Link>
+            <Link to="/contact" className="hover:text-gray-300 hidden xl:block">
+              Contact sales
+            </Link>
+            <Link
+              to="/get-started"
+              className="hover:text-gray-300 bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700">
+              Get Started - it's free
+            </Link>
+          </div>
 
           {/* mobile menu */}
-          <div className="md:hidden">mobile menu</div>
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md hover:text-gray-300 hover:bg-gray-700">
+              {!isMenuOpen ? (
+                <MdMenu className="block w-6 h-6" />
+              ) : (
+                <MdClose className="block w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </nav>
