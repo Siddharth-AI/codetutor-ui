@@ -97,7 +97,7 @@ export const Navbar = () => {
           {/* desktop menu */}
           <div className="hidden lg:flex items-center space-x-4">
             {Object.keys(menuItems).map((key) => (
-              <div className="relative">
+              <div key={menuItems[key].title} className="relative">
                 <button
                   onClick={() => toggleDropdown(key)}
                   className="hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium flex items-center">
@@ -111,13 +111,42 @@ export const Navbar = () => {
                 {/* dropdown menu */}
                 {activeDropdown === key && (
                   <div className="absolute left-0 mt-2 w-screen max-w-md bg-white rounded-md shadow-lg py-1 text-black">
-                    <div>
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-12 p-4">
                       {key === "platform" ? (
-                        <div>platform item</div>
+                        menuItems[key].sections.map((section, idx) => (
+                          <div key={idx}>
+                            <h3 className="text-xs font-semibold text-gray-500 tracking-wider mb-2">
+                              {section.title}
+                            </h3>
+                            <div>
+                              {section.items.map((item, itemidx) => (
+                                <Link
+                                  key={itemidx}
+                                  to={`/${key}/${item.name.toLowerCase()}`}
+                                  className="group flex items-start p-2 rounded-lg hover:bg-gray-100">
+                                  <div className="px-4">
+                                    <p className="text-sm font-medium text-gray-900 flex items-center">
+                                      {item.name}
+                                      {item.isNew && (
+                                        <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                          New
+                                        </span>
+                                      )}
+                                    </p>
+                                    <p className="text-sm text-gray-500">
+                                      {item.desc}
+                                    </p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))
                       ) : (
                         <div className="space-y-2">
-                          {menuItems[key].items.map((item, index) => (
+                          {menuItems[key].items.map((item, idx) => (
                             <Link
+                              key={idx}
                               to={`/${key}/${item.name.toLowerCase()}`}
                               className="group flex items-start p-2 rounded-lg hover:bg-gray-100">
                               <div className="px-4">
