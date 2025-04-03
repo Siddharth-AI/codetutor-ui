@@ -44,6 +44,36 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
+
+        {/* video */}
+        <div className="w-full h-full mt-16 relative">
+          <video
+            src={video}
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover"
+          />
+
+          <div className="absolute top-1/2 xl:-left-20 md:-left-0 z-20 xl:block hidden">
+            <img
+              src={bannerLeft}
+              alt=""
+              className="lg:h-32 md:h-24 h-20 w-full object-cover"
+            />
+          </div>
+
+          <div className="absolute bottom-1/5 xl:-right-20 md:-right-0 z-20 xl:block hidden">
+            <img
+              src={bannerRight}
+              alt=""
+              className="lg:h-44 md:h-32 h-28 w-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 z-10 bg-gradient-to-t from-black to-transparent hidden md:block"></div>
       </div>
     </div>
   );
