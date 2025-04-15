@@ -104,11 +104,11 @@ src/
 
 # Desktop view :
 
-<img src='./src/assets/desktop.png'  width="800" height="400"/>
+<img src='./src/assets/ScreenShots/desktop.png'  width="800" height="400"/>
 
 # Mobile view :
 
-<img src='./src/assets/mobile.png'  width="400" height="550"/>
+<img src='./src/assets/ScreenShots/mobile.png'  width="400" height="550"/>
 
 ---
 
