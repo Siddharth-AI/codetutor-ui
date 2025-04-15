@@ -4,7 +4,7 @@ import { HiArrowRight } from "react-icons/hi";
 import video from "../assets/banner-video.mp4";
 import bannerLeft from "../assets/banner-left.avif";
 import bannerRight from "../assets/banner-right.png";
-export const Hero = () => {
+const Hero = () => {
   return (
     <div className="bg-black text-white md:pt-32 pt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 relative">
@@ -78,3 +78,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero;

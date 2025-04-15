@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import { MdKeyboardArrowDown, MdMenu, MdClose } from "react-icons/md";
 
-export const Navbar = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -291,3 +291,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;
