@@ -162,8 +162,8 @@ This project is licensed under the **MIT License**.
 
 For inquiries, collaborations, or feedback:
 
-- **Email**: you@example.com
-- **Website**: [https://codetutor.io](https://codetutor.io)
+- **Email**: sidshah895@gmail.com
+- **Website**: https://siddharth-ai.github.io/codetutor-ui/
 
 ---
 
